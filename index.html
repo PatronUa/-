@@ -3,77 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форматування таблиць у CSS</title>
+  <title>Великий текст із розміткою, зображеннями та посиланнями</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-    <h1>Демонстрація форматування таблиць за допомогою CSS</h1>
-    <p>Рамки, кольори, вирівнювання, злиття клітинок, ефекти наведення, адаптивність.</p>
+<body id="top">
+  <header class="site-header">
+    <h1>Навчальний приклад: розмітка великого тексту</h1>
+    <p>Демонстрація заголовків, форматування тексту, зображень (включно з <code>&lt;figure&gt;</code>), внутрішніх і зовнішніх посилань.</p>
+    <nav class="toc">
+      <strong>Зміст:</strong>
+      <a href="#intro">Вступ</a>
+      <a href="#formatting">Форматування тексту</a>
+      <a href="#images">Робота із зображеннями</a>
+      <a href="#links">Посилання</a>
+      <a href="#conclusion">Висновки</a>
+    </nav>
   </header>
 
   <main>
-    <section class="card">
-      <h2>Основна таблиця</h2>
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th rowspan="2">№</th>
-            <th colspan="2">Інформація</th>
-            <th rowspan="2">Оцінка</th>
-          </tr>
-          <tr>
-            <th>Ім’я</th>
-            <th>Предмет</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td><td>Іван</td><td>Математика</td><td>95</td>
-          </tr>
-          <tr>
-            <td>2</td><td>Олена</td><td>Історія</td><td>88</td>
-          </tr>
-          <tr class="highlight">
-            <td>3</td><td>Максим</td><td>Інформатика</td><td>100</td>
-          </tr>
-          <tr>
-            <td>4</td><td>Анна</td><td>Фізика</td><td>91</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="3">Середній бал</td>
-            <td><strong>93.5</strong></td>
-          </tr>
-        </tfoot>
-      </table>
+    <section id="intro" class="card">
+      <h2>Вступ</h2>
+      <p>Цей документ ілюструє основи верстки: <strong>заголовки</strong>, абзаци, <em>курсив</em>, <mark>підсвічування</mark>, <small>зменшений текст</small>,
+      індекси H<sub>2</sub>O і x<sup>2</sup>, вставки коду <code>&lt;code&gt;</code>, цитати та інші елементи. Також наведено приклади вставки
+      зображень різними способами.</p>
+      <p class="lead">Мета — створити зрозумілу, структуровану та доступну сторінку з внутрішньою навігацією.</p>
+      <figure class="hero">
+        <img src="images/hero.jpg" alt="Головне зображення сторінки">
+        <figcaption>Рис. 1 — Заголовне фото розділу «Вступ»</figcaption>
+      </figure>
+      <p><a class="back-to-top" href="#top">До початку документа ↑</a></p>
     </section>
 
-    <section class="card">
-      <h2>Інші приклади форматування</h2>
-      <table class="bordered-table">
-        <tr>
-          <th>Властивість</th><th>CSS приклад</th><th>Опис</th>
-        </tr>
-        <tr>
-          <td>border-collapse</td><td>collapse / separate</td><td>Об’єднання чи розділення рамок</td>
-        </tr>
-        <tr>
-          <td>border-radius</td><td>10px</td><td>Закруглення кутів таблиці</td>
-        </tr>
-        <tr>
-          <td>nth-child</td><td>tr:nth-child(even)</td><td>Зміна кольору кожного другого рядка</td>
-        </tr>
-        <tr>
-          <td>hover</td><td>tr:hover</td><td>Підсвічування рядка при наведенні</td>
-        </tr>
-      </table>
+    <section id="formatting" class="card">
+      <h2>Форматування тексту</h2>
+      <h3>Заголовки та абзаци</h3>
+      <p>Для структурування великого тексту застосовуються заголовки <code>h1–h6</code>. Кожен розділ має свій рівень.
+      В абзацах можна виділяти <strong>важливі поняття</strong>, позначати <em>терміни</em> курсивом, підсвічувати <mark>ключові фрази</mark>,
+      або цитувати джерела.</p>
+      <blockquote>
+        «Хороша структура полегшує сприйняття інформації і навігацію сторінкою.»
+      </blockquote>
+      <p>Приклад коду вбудовано в тексті: <code>const x = 42;</code>. Також можна використати передформатований блок:</p>
+      <pre><code>body { font-family: system-ui; line-height: 1.7; }</code></pre>
+      <ul>
+        <li><span class="badge">Виділення</span> через кастомні стилі</li>
+        <li>Списки для переліку тез</li>
+        <li>Виноски <small>(за потреби)</small></li>
+      </ul>
+    </section>
+
+    <section id="images" class="card">
+      <h2>Вставка зображень</h2>
+      <h3>Стандартне зображення через &lt;img&gt;</h3>
+      <p>Нижче — звичайне зображення з класом для керування розмірами:</p>
+      <p><img class="img-std" src="images/article.jpg" alt="Зображення статті"></p>
+
+      <h3>Зображення з підписом через &lt;figure&gt;</h3>
+      <figure class="figure">
+        <img src="images/thumb.jpg" alt="Мініатюра з підписом">
+        <figcaption>Рис. 2 — Приклад підпису під зображенням</figcaption>
+      </figure>
+
+      <h3>Адаптивна вставка через &lt;picture&gt;</h3>
+      <picture>
+        <source media="(max-width: 600px)" srcset="images/gal1.jpg">
+        <source media="(min-width: 601px)" srcset="images/gal2.jpg">
+        <img class="img-std" src="images/gal2.jpg" alt="Адаптивне зображення">
+      </picture>
+
+      <h3>Зображення-посилання</h3>
+      <a href="about.html"><img class="img-thumb" src="images/thumb.jpg" alt="Перейти на сторінку «Про сайт»"></a>
+    </section>
+
+    <section id="links" class="card">
+      <h2>Посилання</h2>
+      <h3>Внутрішні посилання (якорі)</h3>
+      <p>Швидкі переходи всередині документа: <a href="#intro">До вступу</a> • <a href="#images">До зображень</a> • <a href="#conclusion">До висновків</a>.</p>
+
+      <h3>Посилання на інші документи</h3>
+      <ul>
+        <li><a href="about.html">Про сайт (about.html)</a></li>
+        <li><a href="docs/article.html">Додаткова стаття (docs/article.html)</a></li>
+      </ul>
+      <p><a class="back-to-top" href="#top">До початку документа ↑</a></p>
+    </section>
+
+    <section id="conclusion" class="card">
+      <h2>Висновки</h2>
+      <p>Ми розмітили великий текст, застосували заголовки та стилі, вставили зображення різними способами (у тому числі <code>&lt;figure&gt;</code>),
+      а також додали внутрішні й зовнішні посилання на інші документи.</p>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Форматування таблиць у CSS</p>
+  <footer class="site-footer">
+    <p>© 2025 Демонстрація розмітки великого тексту</p>
   </footer>
 </body>
 </html>
